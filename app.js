@@ -12,7 +12,7 @@ authForm.addEventListener('submit', async (e) => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  const response = await fetch('https://your-worker-url/login', {
+  const response = await fetch('https://late-snow-ccf0.arashnm80.workers.dev/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
@@ -33,7 +33,7 @@ authForm.addEventListener('submit', async (e) => {
 
 saveBioButton.addEventListener('click', async () => {
   const bio = bioInput.value;
-  const response = await fetch('https://your-worker-url/update-bio', {
+  const response = await fetch('https://late-snow-ccf0.arashnm80.workers.dev/update-bio', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: currentUser, bio }),
