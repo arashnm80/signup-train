@@ -24,7 +24,7 @@ loginButton.addEventListener('click', async () => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  const data = await makeRequest('https://late-snow-ccf0.arashnm80.workers.dev/login', 'POST', { email, password });
+  const data = await makeRequest('https://moz.arashnm80.workers.dev/login', 'POST', { email, password });
 
   if (data.success) {
     currentUser = email;
@@ -43,7 +43,7 @@ signupButton.addEventListener('click', async () => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  const data = await makeRequest('https://late-snow-ccf0.arashnm80.workers.dev/signup', 'POST', { email, password });
+  const data = await makeRequest('https://moz.arashnm80.workers.dev/signup', 'POST', { email, password });
 
   if (data.success) {
     alert('Sign-up successful! Please log in.');
@@ -57,7 +57,7 @@ signupButton.addEventListener('click', async () => {
 // Handle Bio Update
 saveBioButton.addEventListener('click', async () => {
   const bio = bioInput.value;
-  const data = await makeRequest('https://late-snow-ccf0.arashnm80.workers.dev/update-bio', 'POST', { email: currentUser, bio });
+  const data = await makeRequest('https://moz.arashnm80.workers.dev/update-bio', 'POST', { email: currentUser, bio });
 
   if (data.success) {
     publicBio.textContent = bio;
