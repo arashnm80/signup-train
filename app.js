@@ -16,7 +16,6 @@ async function makeRequest(url, method, data) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
-  console.log(data.json())
   return response.json();
 }
 

@@ -8,7 +8,7 @@ addEventListener('fetch', event => {
   
     // Set CORS headers
     const corsHeaders = {
-      'Access-Control-Allow-Origin': 'https://signup-train.pages.dev', // Allow requests from your frontend
+      'Access-Control-Allow-Origin': '*', // Allow requests from your frontend
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', // Allow these HTTP methods
       'Access-Control-Allow-Headers': 'Content-Type', // Allow these headers
     };
