@@ -1,5 +1,6 @@
-const loginForm = document.getElementById('login-form');
-const signupForm = document.getElementById('signup-form');
+const authForm = document.getElementById('auth-form');
+const loginButton = document.getElementById('login-button');
+const signupButton = document.getElementById('signup-button');
 const profileSection = document.getElementById('profile-section');
 const publicProfileSection = document.getElementById('public-profile-section');
 const bioInput = document.getElementById('bio');
@@ -19,16 +20,15 @@ async function makeRequest(url, method, data) {
 }
 
 // Handle Login
-loginForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = document.getElementById('login-email').value;
-  const password = document.getElementById('login-password').value;
+loginButton.addEventListener('click', async () => {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
   const data = await makeRequest('https://late-snow-ccf0.arashnm80.workers.dev/login', 'POST', { email, password });
 
   if (data.success) {
     currentUser = email;
-    document.getElementById('auth-section').style.display = 'none';
+    authForm.style.display = 'none';
     profileSection.style.display = 'block';
     publicProfileSection.style.display = 'block';
     bioInput.value = data.bio || '';
@@ -39,17 +39,16 @@ loginForm.addEventListener('submit', async (e) => {
 });
 
 // Handle Sign Up
-signupForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = document.getElementById('signup-email').value;
-  const password = document.getElementById('signup-password').value;
+signupButton.addEventListener('click', async () => {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
   const data = await makeRequest('https://late-snow-ccf0.arashnm80.workers.dev/signup', 'POST', { email, password });
 
   if (data.success) {
     alert('Sign-up successful! Please log in.');
-    document.getElementById('signup-email').value = '';
-    document.getElementById('signup-password').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
   } else {
     alert('Sign-up failed. Please try again.');
   }
