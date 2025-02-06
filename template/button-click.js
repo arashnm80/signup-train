@@ -1,0 +1,3 @@
+someButton.addEventListener('click', async () => {
+
+});

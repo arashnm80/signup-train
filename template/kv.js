@@ -1,0 +1,1 @@
+await USERS.put(email, JSON.stringify({ password, bio: '' }));
