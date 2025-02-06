@@ -23,6 +23,14 @@ addEventListener('fetch', event => {
     if (path === '/signup' && request.method === 'POST') {
       // Handle sign-up
       const { email, password } = await request.json();
+      // check if user already exists
+      const user = await USERS.get(email);
+      if (user){
+        return new Response(JSON.stringify({ success: false }), {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: 401,
+          });
+      }
       // Store user data in KV (for demo purposes, avoid storing plain passwords)
       await USERS.put(email, JSON.stringify({ password, bio: '' }));
       return new Response(JSON.stringify({ success: true }), {
